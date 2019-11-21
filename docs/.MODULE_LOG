@@ -1,0 +1,31 @@
+>>
+Script is used     : e3TemplateGenerator.bash
+Script Path        : /home/icssev/e3-dev/official/e3-tools/e3TemplateGenerator
+Script Version     : 1.0.6
+Script Run Time    : 2019Nov21-1547-57CET
+User               : icssev
+e3-tools Hash      : 2e4a460
+>>
+>> git diff 
+
+>>
+>> git diff --cached
+
+>>
+>> git diff HEAD
+
+
+>>
+>> Your sources are located in https://github.com/icshwi.
+>> git submodule will be used.
+>> 
+EPICS_MODULE_NAME  : rssmx100a
+E3_MODULE_SRC_PATH : rssmx100a-epics-ioc
+EPICS_MODULE_URL   : https://github.com/icshwi
+E3_TARGET_URL      : https://github.com/icshwi
+>> 
+e3 module name     : e3-rssmx100a
+e3 module url full : https://github.com/icshwi/rssmx100a-epics-ioc.git
+e3 target url full : https://github.com/icshwi/e3-rssmx100a.git
+>> 
+e3 module is located in siteMods

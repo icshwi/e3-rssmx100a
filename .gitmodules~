@@ -1,0 +1,3 @@
+[submodule "rssmx100a-epics-ioc"]
+	path = rssmx100a-epics-ioc
+	url = https://github.com/icshwi/rssmx100a-epics-ioc.git
