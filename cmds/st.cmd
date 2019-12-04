@@ -1,8 +1,4 @@
-# Required modules
-require calc,3.7.3
-require asyn,4.36.0
-require stream,2.8.10
-require autosave,5.10.0
+# Required modules (will automatically load calc, asyn, stream and autosave)
 require rssmx100a,1.0.0
 
 # Signal Generator IP

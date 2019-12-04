@@ -35,14 +35,25 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # one should look at other modules makefile to add more
 # In most case, one should ignore the following lines:
 
-#ifneq ($(strip $(ASYN_DEP_VERSION)),)
-#asyn_VERSION=$(ASYN_DEP_VERSION)
-#endif
+REQUIRED += calc
+ifneq ($(strip $(CALC_DEP_VERSION)),)
+calc_VERSION=$(CALC_DEP_VERSION)
+endif
 
-#ifneq ($(strip $(SEQUENCER_DEP_VERSION)),)
-#sequencer_VERSION=$(SEQUENCER_DEP_VERSION)
-#endif
+REQUIRED += asyn
+ifneq ($(strip $(ASYN_DEP_VERSION)),)
+asyn_VERSION=$(ASYN_DEP_VERSION)
+endif
 
+REQUIRED += stream
+ifneq ($(strip $(STREAM_DEP_VERSION)),)
+stream_VERSION=$(STREAM_DEP_VERSION)
+endif
+
+REQUIRED += autosave
+ifneq ($(strip $(AUTOSAVE_DEP_VERSION)),)
+autosave_VERSION=$(AUTOSAVE_DEP_VERSION)
+endif
 
 
 ## Exclude linux-ppc64e6500
