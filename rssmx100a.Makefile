@@ -35,23 +35,29 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # one should look at other modules makefile to add more
 # In most case, one should ignore the following lines:
 
-#ifneq ($(strip $(ASYN_DEP_VERSION)),)
-#asyn_VERSION=$(ASYN_DEP_VERSION)
-#endif
+ifneq ($(strip $(ASYN_DEP_VERSION)),)
+asyn_VERSION=$(ASYN_DEP_VERSION)
+endif
 
-#ifneq ($(strip $(SEQUENCER_DEP_VERSION)),)
-#sequencer_VERSION=$(SEQUENCER_DEP_VERSION)
-#endif
+ifneq ($(strip $(STREAM_DEP_VERSION)),)
+stream_VERSION=$(STREAM_DEP_VERSION)
+endif
 
+# ifneq ($(strip $(CALC_DEP_VERSION)),)
+# calc_VERSION=$(CALC_DEP_VERSION)
+# endif
 
+# ifneq ($(strip $(AUTOSAVE_DEP_VERSION)),)
+# autosave_VERSION=$(AUTOSAVE_DEP_VERSION)
+# endif
 
 ## Exclude linux-ppc64e6500
 ##EXCLUDE_ARCHS += linux-ppc64e6500
 ##EXCLUDE_ARCHS += linux-corei7-poky
 
-# APP:=calcApp
-# APPDB:=$(APP)/Db
-# APPSRC:=$(APP)/src
+APP:=rssmx100aApp
+APPDB:=$(APP)/Db
+APPSRC:=$(APP)/src
 
 
 # USR_INCLUDES += -I$(where_am_I)$(APPSRC)
@@ -63,9 +69,9 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # USR_CPPFLAGS += -Wno-unused-function
 # USR_CPPFLAGS += -Wno-unused-but-set-variable
 
+TEMPLATES += $(wildcard $(APPDB)/*.db)
 # TEMPLATES += $(wildcard $(APPDB)/*.db)
-# TEMPLATES += $(wildcard $(APPDB)/*.db)
-# TEMPLATES += $(wildcard $(APPDB)/*.proto)
+TEMPLATES += $(wildcard $(APPDB)/*.proto)
 # TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 
@@ -85,7 +91,7 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # HEADERS += $(DBDINC_HDRS)
 
 
-# SOURCES += $(APPSRC)/sCalcPostfix.c
+# SOURCES += $(APPSRC)/rssmx100aMain.cpp
 # SOURCES += $(APPSRC)/sCalcPerform.c
 # SOURCES += $(APPSRC)/aCalcPostfix.c
 # SOURCES += $(APPSRC)/aCalcPerform.c
