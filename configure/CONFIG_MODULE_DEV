@@ -1,17 +1,15 @@
 #
 EPICS_MODULE_NAME:=rssmx100a
-EPICS_MODULE_TAG:=master
+EPICS_MODULE_TAG:=without-fm-cs
 #
 E3_MODULE_VERSION:=develop
 
 # DEPENDENT MODULE VERSION
 ASYN_DEP_VERSION:=4.36.0
+CALC_DEP_VERSION:=3.7.3
 STREAM_DEP_VERSION:=2.8.10
-CALC_DEP_VERSION=3.7.3
-AUTOSAVE_DEP_VERSION=5.10.0
+AUTOSAVE_DEP_VERSION:=5.10.0
 
-#
-#
 # 
 #E3_KMOD_SRC_PATH:=$(E3_MODULE_SRC_PATH)
 #
@@ -22,7 +20,6 @@ E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
 E3_MODULE_SRC_PATH:=rssmx100a-epics-ioc-dev
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 
-#E3_MODULE_DEV_GITURL:="https://where your git repo which you would like to clone"
 E3_MODULE_DEV_GITURL:="https://github.com/icshwi/rssmx100a-epics-ioc.git"
 
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE_DEV.local

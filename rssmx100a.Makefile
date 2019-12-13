@@ -35,17 +35,25 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # one should look at other modules makefile to add more
 # In most case, one should ignore the following lines:
 
+REQUIRED += calc
+ifneq ($(strip $(CALC_DEP_VERSION)),)
+calc_VERSION=$(CALC_DEP_VERSION)
+endif
+
+REQUIRED += asyn
 ifneq ($(strip $(ASYN_DEP_VERSION)),)
 asyn_VERSION=$(ASYN_DEP_VERSION)
 endif
 
+REQUIRED += stream
 ifneq ($(strip $(STREAM_DEP_VERSION)),)
 stream_VERSION=$(STREAM_DEP_VERSION)
 endif
 
-# ifneq ($(strip $(CALC_DEP_VERSION)),)
-# calc_VERSION=$(CALC_DEP_VERSION)
-# endif
+REQUIRED += autosave
+ifneq ($(strip $(AUTOSAVE_DEP_VERSION)),)
+autosave_VERSION=$(AUTOSAVE_DEP_VERSION)
+endif
 
 # ifneq ($(strip $(AUTOSAVE_DEP_VERSION)),)
 # autosave_VERSION=$(AUTOSAVE_DEP_VERSION)
@@ -71,8 +79,9 @@ APPSRC:=$(APP)/src
 
 TEMPLATES += $(wildcard $(APPDB)/*.db)
 # TEMPLATES += $(wildcard $(APPDB)/*.db)
+TEMPLATES += $(wildcard $(APPDB)/*.req)
 TEMPLATES += $(wildcard $(APPDB)/*.proto)
-# TEMPLATES += $(wildcard $(APPDB)/*.template)
+TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 
 # DBDINC_SRCS += $(APPSRC)/swaitRecord.c
@@ -239,6 +248,5 @@ vlibs:
 # 	$(QUIET)$(SUDO) install -m 755 $@ $(E3_MODULES_VENDOR_LIBS_LOCATION)/
 
 # .PHONY: $(VENDOR_LIBS) vlibs
-
 
 
