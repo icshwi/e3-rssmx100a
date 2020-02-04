@@ -1,0 +1,33 @@
+[Unit]
+Description=IOC: %I
+After=network-online.target epics.mount
+ 
+# Only execute IOC if st.cmd exists
+AssertPathExists=/home/joaopaulomartins/e3-%I
+AssertPathExists=/epics
+ 
+[Service]
+#User=iocuser
+ExecStartPre=/bin/mkdir -p /var/log/procServ/%I
+#ExecStartPre=/bin/chown -R iocuser:iocuser /var/log/procServ/%I
+ExecStartPre=/bin/mkdir -p /var/run/procServ/%I
+#ExecStartPre=/bin/chown -R iocuser:iocuser /var/run/procServ/%I
+ 
+# Execute StartPre with root permissions
+#PermissionsStartOnly=true
+ 
+# Run procServ with user iocuser
+#ExecStart=/usr/bin/procServ -f -n %I -L /var/log/procServ/%I/out-%I.log -i ^C^D -x ^Q -c /var/run/procServ/%I 2000 /e3-feb/base-3.15.7/require/3.1.2/bin/iocsh.bash /home/iocuser/e3-%I/cmds/%I.cmd
+ExecStart=/usr/bin/procServ \
+                    -f \
+                    -n %I \
+                    -L /var/log/procServ/%I/out-%I.log \
+                    -i ^C^D \
+                    -x ^Q \
+                    -c /var/run/procServ/%I \
+                    2000 \
+                    /ePICS/base-7.0.3.1/require/3.1.2/bin/iocsh.bash \
+                    /home/joaopaulomartins/e3-%I/cmds/rflab.cmd
+ 
+[Install]
+WantedBy=multi-user.target
