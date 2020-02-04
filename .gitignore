@@ -14,3 +14,5 @@ core.*
 *PVs.list
 *-loc/*.Makefile
 rssmx100a-epics-ioc/*.Makefile
+.project
+
